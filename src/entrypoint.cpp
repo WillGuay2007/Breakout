@@ -7,15 +7,34 @@ void raylib_start(void){
 
     InitWindow(Width, Height, "Breakout");
 
-    Paddle paddle = Paddle(Width/2, Height - 100);
+    Paddle paddle = Paddle();
+    Ball ball = Ball();
+    Brick bricks[Brick_rows][Brick_columns];
+
+    for (int row = 0; row < Brick_rows; row++) {
+        for (int col = 0; col < Brick_columns; col++) {
+            int x = (Width / Brick_columns) * col + 50;
+            int y = (400 / Brick_rows) * row + 50;
+            bricks[row][col] = Brick(x, y, 50, 50, RED);
+        }
+    }
 
     while (!WindowShouldClose() & !IsKeyPressed(KEY_ESCAPE))
     {
         BeginDrawing();
         ClearBackground(WHITE);
 
-        paddle.Update(1);
+        paddle.Update(GetFrameTime());
         paddle.Draw();
+
+        //ball.Draw();
+
+        for (int row = 0; row < Brick_columns; row++) {
+            for (int col = 0; col < Brick_rows; col++) {
+               
+                bricks[row][col].Draw();
+            }
+        }
 
         EndDrawing();
     }

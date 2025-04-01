@@ -4,8 +4,8 @@
 #include <raylib.h>
 #include <math.h>
 
-#define Width 1920
-#define Height 1080
+#define Width 960
+#define Height 540
 
 #define Brick_rows 4
 #define Brick_columns 10
@@ -117,7 +117,7 @@ class Ball : public GameObject {
 
     public:
     //Pour le constructeur, le width est considéré comme le radius
-    Ball() : GameObject(Width/2, Height - 200, 50, 50, 500, GREEN) {
+    Ball() : GameObject(Width/2, Height - 200, 15, 15, 250, GREEN) {
         dirX = -1.0f;
         dirY = -1.0f;
         isInPlay = false;
@@ -128,7 +128,7 @@ class Ball : public GameObject {
     }
 
     void WaitForStart() {
-        if (!isInPlay & IsKeyPressed(KEY_SPACE)) {isInPlay = true;} else if (!isInPlay) {DrawText("PRESS SPACE TO START", Width/2 - 300, Height/2, 50, BLUE);}
+        if (!isInPlay & IsKeyPressed(KEY_SPACE)) {isInPlay = true;} else if (!isInPlay) {DrawText("PRESS SPACE TO START", Width/2 - 150, Height/2, 25, BLUE);}
     }
 
     void Update(float dt, Brick bricks[Brick_rows][Brick_columns], Paddle paddle) {

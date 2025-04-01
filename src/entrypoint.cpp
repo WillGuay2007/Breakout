@@ -13,10 +13,10 @@ void raylib_start(void){
 
     for (int row = 0; row < Brick_rows; row++) {
         for (int col = 0; col < Brick_columns; col++) {
-            int w = 150;
-            int h = 75;
+            float w = 75;
+            float h = 37.5;
             int SpacingX = Width / Brick_columns;
-            int SpacingY = 400 / Brick_rows;
+            int SpacingY = 200 / Brick_rows;
             int x = SpacingX * col + SpacingX/2 - w/2;
             int y = SpacingY * row + 25;
             bricks[row][col] = Brick(x, y, w, h, RED);
